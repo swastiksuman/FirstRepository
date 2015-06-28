@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Flipkart">
+
+<test name="Login test Unsuccessful">
+    <classes>
+        <class name="Tests.Test1" ></class>  
+    </classes>
+</test>
+
+
+<test name="Login test Successful">
+    <classes>
+        <class name="Tests.Test2" ></class>  
+    </classes>
+</test>
+
+
+
+
+
+
+
+</suite>
