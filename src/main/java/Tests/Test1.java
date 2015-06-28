@@ -43,13 +43,13 @@ public class Test1 extends App{
 	public void test1(String userName, String password, String firstName){
 	
 		Login.navigateToLogin(driver);
-		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino#09", "Swaswtik");
+		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino", "Swaswtik");
 	}
 	
 	@DataProvider(name="test1")
 	public Object[][] getData(){
-		return new Object[][] {{"swastiksuman@gmail.com", "elnino#09", "Swaswtik"},
-			{"swastiksuman@gmail.com", "elnino#09", "Swastik"},
+		return new Object[][] {{"swastiksuman@gmail.com", "elnino", "Swaswtik"},
+			{"swastiksuman@gmail.com", "elnino", "Swastik"},
 		};
 	}
 }

@@ -38,7 +38,7 @@ public class Test2 extends App{
 	@Test
 	public void test1(){
 		Login.navigateToLogin(driver);
-		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino#09", "Swastik");
+		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino", "Swastik");
 	}
 	
 	
