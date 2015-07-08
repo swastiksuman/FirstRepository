@@ -20,7 +20,7 @@ import PageObjects.Login;
 public class Test2 extends App{
 	
 	public WebDriver driver;
-	
+	private String testCaseID = "TC_002";
 	@BeforeTest
 	public void preTest(){
 		
@@ -36,9 +36,13 @@ public class Test2 extends App{
 	}
 	
 	@Test
-	public void test1(){
+	public void test2(){
+		try{
 		Login.navigateToLogin(driver);
-		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino", "Swastik");
+		Login.loginToApp(driver, testCaseID);
+		}catch(Exception e){
+			System.out.println(e.getStackTrace());
+		}
 	}
 	
 	

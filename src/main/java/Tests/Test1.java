@@ -31,25 +31,25 @@ public class Test1 extends App{
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
 	
+		
+	}
 	@AfterMethod
 	public void afterTestCleanUp(){
 		driver.close();
 		driver.quit();
 	}
 	
-	@Test(dataProvider = "test1")
-	public void test1(String userName, String password, String firstName){
-	
+	@Test
+	public void test2(){
+		try{
 		Login.navigateToLogin(driver);
-		Login.loginToApp(driver, "swastiksuman@gmail.com", "elnino", "Swaswtik");
-	}
+		Login.loginToApp(driver, testCaseID);
 	
-	@DataProvider(name="test1")
-	public Object[][] getData(){
-		return new Object[][] {{"swastiksuman@gmail.com", "elnino", "Swaswtik"},
-			{"swastiksuman@gmail.com", "elnino", "Swastik"},
-		};
-	}
+		}catch(Exception e){
+			System.out.println(e.getStackTrace());
+		}
+	}	
+	
+	
 }

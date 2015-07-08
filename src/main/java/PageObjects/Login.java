@@ -1,11 +1,15 @@
 package PageObjects;
 
+
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
+import Exception.FilloException;
+import Fillo.Connection;
+import Fillo.Fillo;
+import Fillo.Recordset;
 
 public class Login{
 	
@@ -18,7 +22,7 @@ public class Login{
 		return driver;
 	}
 	
-	public static WebDriver loginToApp(WebDriver driver, String user, String pass, String userFirstName){
+	public static WebDriver loginToApp(WebDriver driver, String TCID) throws ClassNotFoundException{
 		/*List<WebElement> frameList = driver.findElements(By.tagName("iframe"));
 		
 		for(WebElement everyFrame : frameList){
@@ -26,14 +30,33 @@ public class Login{
 		}*/
 		
 		//driver.switchTo().frame(0);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e1) {
+		String userName = null;
+		String passWord = null;
+		
+		Fillo fillo = new Fillo();
+		try {	
+			Connection connection = fillo.getConnection("V://GitRepository//FlipKart//src//main//java//Resources//Datasheets.xls");
+			String strQuery="Select * from Login where TC_ID='"+TCID+"'";
+			Recordset recordset=connection.executeQuery(strQuery);
+			System.out.println(recordset.getCount());
+			List<String> rs = recordset.getFieldNames();
+			for(String str:rs){
+				System.out.println(str.toString());
+			}
+			
+			recordset.moveFirst();
+			userName = recordset.getField("USER").toString();
+			passWord = recordset.getField("PASS").toString();
+			
+			
+		} catch (FilloException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-email")).sendKeys(user);
-		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-pwd")).sendKeys(pass);		
+		
+		
+		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-email")).sendKeys(userName);
+		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-pwd")).sendKeys(passWord);		
 		driver.findElement(By.cssSelector(".submit-btn.login-btn.btn")).click();
 		try {
 			Thread.sleep(5000);
@@ -43,7 +66,7 @@ public class Login{
 		}
 		
 		
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")).getText(), "Hi "+userFirstName+ "!");
+		//Assert.assertEquals(driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")).getText(), "Hi "+userFirstName+ "!");
 		/*
 		if (driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a"))){
 			System.out.println("Login Successful");
