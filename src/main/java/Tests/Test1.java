@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.relevantcodes.extentreports.LogStatus;
+
 import FlipKart.FlipKart.App;
 import PageObjects.Login;
 
@@ -42,10 +44,13 @@ public class Test1 extends App{
 	
 	@Test
 	public void test2(){
+		
+		reports.startTest("Login1","Check Login Successful");
 		try{
 		Login.navigateToLogin(driver);
+		reports.log(LogStatus.PASS, "Navigate to Login", "The user is in Login Page");
 		Login.loginToApp(driver, testCaseID);
-	
+		reports.log(LogStatus.PASS, "Login","Login was successful");
 		}catch(Exception e){
 			System.out.println(e.getStackTrace());
 		}

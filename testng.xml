@@ -8,14 +8,18 @@
 </test>
 
 
-<test name="Login test Successful">
+<test name="Login test Successful Again">
     <classes>
         <class name="Tests.Test2" ></class>  
     </classes>
 </test>
 
 
-
+<test name="Login test and Search">
+    <classes>
+        <class name="Tests.Test3" ></class>  
+    </classes>
+</test>
 
 
 

@@ -6,32 +6,37 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
+import com.relevantcodes.extentreports.ExtentReports;
 
-	@BeforeSuite
-	public void beforeSuite(){
-		System.out.println("BeforeSuite");
-	}
+
+
 	
-	@AfterSuite
-	public void afterSuite(){
-		System.out.println("AfterSuite");
-	}
-	
+
+	public class App {
+
+		public ExtentReports reports = ExtentReports.get(App.class);
 		
-	@BeforeClass
-	public void initEverything(){
-		System.out.println("BeforeClass");
-	}
-	
-	@AfterClass
-	public void reportThings(){
-		System.out.println("AfterClass");
-	}
+		@BeforeSuite
+		public void beforeSuite(){
+			System.out.println("BeforeSuite");
+			reports.init("V:\\GitRepository\\FlipKart\\reports.html", true);
+		}
+		
+		@AfterSuite
+		public void afterSuite(){
+			System.out.println("AfterSuite");
+			reports.endTest();
+		}
+		
+			
+		@BeforeClass
+		public void initEverything(){
+			System.out.println("BeforeClass");
+		}
+		
+		@AfterClass
+		public void reportThings(){
+			System.out.println("AfterClass");
+		}
 
 }

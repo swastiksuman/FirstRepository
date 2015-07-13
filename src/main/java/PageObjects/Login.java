@@ -22,7 +22,7 @@ public class Login{
 		return driver;
 	}
 	
-	public static WebDriver loginToApp(WebDriver driver, String TCID) throws ClassNotFoundException{
+	public static boolean loginToApp(WebDriver driver, String TCID) throws Exception{
 		/*List<WebElement> frameList = driver.findElements(By.tagName("iframe"));
 		
 		for(WebElement everyFrame : frameList){
@@ -65,14 +65,13 @@ public class Login{
 			e.printStackTrace();
 		}
 		
-		
-		//Assert.assertEquals(driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")).getText(), "Hi "+userFirstName+ "!");
-		/*
-		if (driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a"))){
-			System.out.println("Login Successful");
-		}*/
-		return driver;
-	}
-	
-	
+		if(driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")).getText().equals("Hi "+userName+ "!")){
+			return true;	
+		}	
+		else{	
+			return false;
+		}
+	}	
 }
+	
+	
