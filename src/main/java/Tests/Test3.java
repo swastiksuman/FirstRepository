@@ -12,16 +12,16 @@ import PageObjects.Login;
 import PageObjects.Search;
 
 public class Test3 extends App{
-	public WebDriver driver;
+
 	private String testCaseID = "TC_003";
 	
-	@BeforeTest
+/*	@BeforeTest
 	public void preTest(){
-		driver = new FirefoxDriver();
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-
+*/
 	@Test
 	public void test3(){
 		reports.startTest("Search","Search text");

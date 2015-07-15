@@ -1,27 +1,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Flipkart">
+<suite name="TestNG Flipkart" parallel="tests" thread-count="1">
 
-<test name="Login test Unsuccessful">
-    <classes>
-        <class name="Tests.Test1" ></class>  
-    </classes>
-</test>
-
-
-<test name="Login test Successful Again">
-    <classes>
-        <class name="Tests.Test2" ></class>  
-    </classes>
-</test>
-
-
-<test name="Login test and Search">
-    <classes>
-        <class name="Tests.Test3" ></class>  
-    </classes>
-</test>
-
-
-
+	<test name="Login test Unsuccessful">
+	    <parameter name ="browser" value = "chrome"/>
+	    <classes>
+	        <class name="Tests.Test1" ></class>  
+	    </classes>
+	</test>
+	
+	
+	<test name="Login test Successful Again">
+	    <parameter name ="browser" value = "chrome"/>
+	    <classes>
+	        <class name="Tests.Test2" ></class>  
+	    </classes>
+	</test>
+	
+	
+	<test name="Login test and Search">
+	    <parameter name ="browser" value = "chrome"/>
+	    <classes>
+	        <class name="Tests.Test3" ></class>  
+	    </classes>
+	</test>
 
 </suite>

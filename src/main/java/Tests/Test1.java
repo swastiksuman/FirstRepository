@@ -22,15 +22,14 @@ import PageObjects.Login;
 
 public class Test1 extends App{
 	
-	public WebDriver driver;
+
 	private String testCaseID = "TC_001"; 
 	
 		
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	public void preTest(){
 		
-		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
@@ -38,9 +37,8 @@ public class Test1 extends App{
 	}
 	@AfterMethod
 	public void afterTestCleanUp(){
-		driver.close();
-		driver.quit();
-	}
+
+	}*/
 	
 	@Test
 	public void test2(){
