@@ -35,7 +35,7 @@ public class Login{
 		
 		Fillo fillo = new Fillo();
 		try {	
-			Connection connection = fillo.getConnection("V://GitRepository//FlipKart//src//main//java//Resources//Datasheets.xls");
+			Connection connection = fillo.getConnection("V://GitRepository//FlipKart//src//test//java//Resources//Datasheets.xls");
 			String strQuery="Select * from Login where TC_ID='"+TCID+"'";
 			Recordset recordset=connection.executeQuery(strQuery);
 			System.out.println(recordset.getCount());

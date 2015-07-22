@@ -29,7 +29,7 @@
 	        <class name="Tests.Test4" ></class>  
 	    </classes>
 	</test>
-
+    
 	<test name="Login test and Search and DeleteAdd to Cart">
 	    <parameter name ="browser" value = "firefox"/>
 	    <classes>
