@@ -37,7 +37,6 @@ public class Test1 extends App{
 	}
 	@AfterMethod
 	public void afterTestCleanUp(){
-
 	}*/
 	
 	@Test
@@ -45,7 +44,7 @@ public class Test1 extends App{
 		
 		reports.startTest("Login1","Check Login Successful");
 		try{
-		Login.navigateToLogin(driver);
+		driver = Login.navigateToLogin(driver);
 		reports.log(LogStatus.PASS, "Navigate to Login", "The user is in Login Page");
 		Login.loginToApp(driver, testCaseID);
 		reports.log(LogStatus.PASS, "Login","Login was successful");

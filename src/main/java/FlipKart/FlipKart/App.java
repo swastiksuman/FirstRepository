@@ -55,16 +55,12 @@ import com.relevantcodes.extentreports.ExtentReports;
 			else if(browser.equalsIgnoreCase("chrome")){
 				System.setProperty("webdriver.chrome.driver","V:\\Jars\\chromedriver.exe");
 				driver = new ChromeDriver();
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 			}
 			else if(browser.equalsIgnoreCase("PhantomJS")){
 			}
 			
+			driver.manage().window().maximize();
 		}
 		
 		@AfterTest
