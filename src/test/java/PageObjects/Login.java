@@ -2,16 +2,22 @@ package PageObjects;
 
 
 import java.util.List;
-
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Exception.FilloException;
 import Fillo.Connection;
 import Fillo.Fillo;
 import Fillo.Recordset;
+import FlipKart.FlipKart.App;
 
-public class Login{
+public class Login extends App{
 	
 	
 	
@@ -36,6 +42,7 @@ public class Login{
 		Fillo fillo = new Fillo();
 		try {	
 			Connection connection = fillo.getConnection("V://GitRepository//FlipKart//src//test//java//Resources//Datasheets.xls");
+			Log.debug("Fillo Connection made");
 			String strQuery="Select * from Login where TC_ID='"+TCID+"'";
 			Recordset recordset=connection.executeQuery(strQuery);
 			System.out.println(recordset.getCount());
@@ -58,13 +65,20 @@ public class Login{
 		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-email")).sendKeys(userName);
 		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-pwd")).sendKeys(passWord);		
 		driver.findElement(By.cssSelector(".submit-btn.login-btn.btn")).click();
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
+/*		
+		WebDriverWait wait = new WebDriverWait(driver, 20L);
+*/				
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(20, TimeUnit.SECONDS)
+				.pollingEvery(5, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class)
+				.withMessage("Timed Out");
+		
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")));
+				
 		if(driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[1]/div/div[2]/div[1]/ul/li[7]/a")).getText().equals("Hi "+userName+ "!")){
 			return true;	
 		}	
@@ -73,5 +87,3 @@ public class Login{
 		}
 	}	
 }
-	
-	

@@ -1,39 +1,45 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestNG Flipkart" parallel="tests" thread-count="1">
-
-	<test name="Login test">
-	    <parameter name ="browser" value = "firefox"/>
-	    <classes>
-	        <class name="Tests.Test1" ></class>  
-	    </classes>
-	</test>
-    
-	
-	<test name="Login test Fail">
-	    <parameter name ="browser" value = "firefox"/>
-	    <classes>
-	        <class name="Tests.Test2" ></class>  
-	    </classes>
-	</test>
-	
-	<test name="Login test and Search">
-	    <parameter name ="browser" value = "firefox"/>
-	    <classes>
-	        <class name="Tests.Test3" ></class>  
-	    </classes>
-	</test>
+	<listeners> 
+	    <listener class-name="FlipKart.FlipKart.RetryListner">
+	    
+	</listener>
+	</listeners>		
+	    
+		<test name="Login test">
+		    <parameter name ="browser" value = "firefox"/>
+		    <classes>
+		        <class name="Tests.Test1" ></class>  
+		    </classes>
+		</test>
+	    
+		
+		<test name="Login test Fail">
+		    <parameter name ="browser" value = "firefox"/>
+		    <classes>
+		        <class name="Tests.Test2" ></class>  
+		    </classes>
+		</test>
+		
+		<test name="Login test and Search">
+		    <parameter name ="browser" value = "firefox"/>
+		    <classes>
+		        <class name="Tests.Test3" ></class>  
+		    </classes>
+		</test>
+				
+		<test name="Login test and Search and Add to Cart">
+		    <parameter name ="browser" value = "firefox"/>
+		    <classes>
+		        <class name="Tests.Test4" ></class>  
+		    </classes>
+		</test>
+	    
+		<test name="Login test and Search and DeleteAdd to Cart">
+		    <parameter name ="browser" value = "firefox"/>
+		    <classes>
+		        <class name="Tests.Test5" ></class>  
+		    </classes>
+		</test>
 			
-	<test name="Login test and Search and Add to Cart">
-	    <parameter name ="browser" value = "firefox"/>
-	    <classes>
-	        <class name="Tests.Test4" ></class>  
-	    </classes>
-	</test>
-    
-	<test name="Login test and Search and DeleteAdd to Cart">
-	    <parameter name ="browser" value = "firefox"/>
-	    <classes>
-	        <class name="Tests.Test5" ></class>  
-	    </classes>
-	</test>
 </suite>
