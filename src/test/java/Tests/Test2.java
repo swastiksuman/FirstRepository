@@ -34,7 +34,7 @@ public class Test2 extends App{
 	
 	@Test
 	public void test2(){
-		reports.startTest("Login2","Check Login Unsuccessful");
+		reports.startTest("Login and Logout again","Check Login Unsuccessful");
 		try{
 		Login.navigateToLogin(driver);
 		Login.loginToApp(driver, testCaseID);

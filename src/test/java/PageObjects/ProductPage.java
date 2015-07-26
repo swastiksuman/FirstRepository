@@ -14,19 +14,24 @@ import Fillo.Recordset;
 public class ProductPage {
 
 	
-	public static WebDriver addToCart(WebDriver driver, String testCaseID){
-
-			driver.findElement(By.cssSelector(".btn-buy-now.btn-big.current")).click();
+	public static boolean addToCart(WebDriver driver, String testCaseID){
 			
+		
+		try{
+			driver.findElement(By.cssSelector(".btn-buy-now.btn-big.current")).click();
 			try {
-				Thread.sleep(30000);
+				Thread.sleep(20000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println(driver.findElement(By.id("item_count_in_cart_top_displayed")).getText());
-			
-			return driver;
+		}catch(Exception e){
+			Assert.fail();
+			return false;
+		}
+		
+		return true;
 		
 	}
 	

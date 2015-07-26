@@ -24,7 +24,7 @@ public class Test3 extends App{
 */
 	@Test
 	public void test3(){
-		reports.startTest("Search","Search text");
+		reports.startTest("Search functionality.","Search text");
 		Login.navigateToLogin(driver);
 		try {
 			Login.loginToApp(driver, testCaseID);

@@ -20,7 +20,7 @@ public class Test4 extends App{
 */
 	@Test
 	public void test4(){
-		reports.startTest("Search","Search text");
+		reports.startTest("Search again","Search text");
 		Login.navigateToLogin(driver);
 		try {
 			Login.loginToApp(driver, testCaseID);
@@ -32,8 +32,8 @@ public class Test4 extends App{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver = Search.textSearch(driver, testCaseID);
-		driver = ProductPage.addToCart(driver, testCaseID);
+		Search.textSearch(driver, testCaseID);
+		ProductPage.addToCart(driver, testCaseID);
 	}
 
 }

@@ -14,7 +14,7 @@ import Fillo.Recordset;
 import FlipKart.FlipKart.App;
 
 public class Search extends App {
-	public static WebDriver textSearch(WebDriver driver, String testCaseID){
+	public static boolean textSearch(WebDriver driver, String testCaseID){
 		
 		
 		String textSearch = null;
@@ -32,6 +32,7 @@ public class Search extends App {
 			
 			recordset.moveFirst();
 			textSearch = recordset.getField("textSearch").toString();
+			
 			driver.findElement(By.cssSelector("#fk-top-search-box")).sendKeys(textSearch);
 			driver.findElement(By.cssSelector(".search-bar-submit.fk-font-13.fk-font-bold")).click();
 			//Assert.assertEquals(textSearch, driver.findElement(By.cssSelector(".cross.rmargin10")).getText());
@@ -52,9 +53,10 @@ public class Search extends App {
 		} catch (FilloException e1) {
 			// TODO Auto-generated catch block
 			Assert.fail(e1.getMessage());
-			return driver;
+			Log.debug("TCID: " +testCaseID+" failed "+e1.getMessage());
+			return false;
 		}
-		return driver;
+		return true;
 		
 	}
 }

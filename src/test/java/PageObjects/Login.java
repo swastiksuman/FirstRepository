@@ -4,12 +4,16 @@ package PageObjects;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.LogStatus;
 
 import Exception.FilloException;
 import Fillo.Connection;
@@ -55,22 +59,40 @@ public class Login extends App{
 			userName = recordset.getField("USER").toString();
 			passWord = recordset.getField("PASS").toString();
 			
+			driver.findElement(By.cssSelector(".fk-input.login-form-input.user-email")).sendKeys(userName);
+			driver.findElement(By.cssSelector(".fk-input.login-form-input.user-pwd")).sendKeys(passWord);
+			reports.log(LogStatus.PASS, "The username and password was applied.");
+			driver.findElement(By.cssSelector(".submit-btn.login-btn.btn")).click();
+
+			Thread.sleep(5000);
+			
+			if(driver.findElements(By.linkText("Login")).size()==0){
+				reports.log(LogStatus.PASS, "The user is logged in.");
+			}else{
+				reports.log(LogStatus.PASS, "The user is logged in.");
+				Assert.fail("The user wasn't logged in.");
+			}
+			
+			
 			
 		} catch (FilloException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			Log.debug("TestCase: "+TCID+" error:" +e1.getMessage());
+			Assert.fail();
+			return false;
+		} catch(Exception e){
+			e.printStackTrace();
+			Assert.fail();
+			return false;
 		}
 		
-		
-		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-email")).sendKeys(userName);
-		driver.findElement(By.cssSelector(".fk-input.login-form-input.user-pwd")).sendKeys(passWord);		
-		driver.findElement(By.cssSelector(".submit-btn.login-btn.btn")).click();
-
+		return true;
 		
 /*		
 		WebDriverWait wait = new WebDriverWait(driver, 20L);
 */				
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		/*Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(20, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class)
@@ -84,6 +106,6 @@ public class Login extends App{
 		}	
 		else{	
 			return false;
-		}
+		}*/
 	}	
 }

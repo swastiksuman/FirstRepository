@@ -22,7 +22,7 @@ public class Test5 extends App{
 */
 	@Test
 	public void test4(){
-		reports.startTest("Search","Search text");
+		reports.startTest("Search and add to cart","Search text");
 		Login.navigateToLogin(driver);
 		try {
 			Login.loginToApp(driver, testCaseID);
@@ -34,9 +34,9 @@ public class Test5 extends App{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver = Cart.deleteFromCart(driver, testCaseID);
-		driver = Search.textSearch(driver, testCaseID);
-		driver = ProductPage.addToCart(driver, testCaseID);
+		Cart.deleteFromCart(driver, testCaseID);
+		Search.textSearch(driver, testCaseID);
+		ProductPage.addToCart(driver, testCaseID);
 	}
 	
 	

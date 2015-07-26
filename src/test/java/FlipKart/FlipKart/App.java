@@ -4,6 +4,7 @@ import org.eclipse.jetty.util.log.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
@@ -17,14 +18,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.apache.log4j.Logger;
+
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 
 
 	
 
 	public class App {
 
-		public ExtentReports reports = ExtentReports.get(App.class);
+		public static ExtentReports reports = ExtentReports.get(App.class);
 		public WebDriver driver;
 		public static Logger Log = Logger.getLogger("devpinoyLogger");
 		
@@ -34,6 +37,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 			System.out.println("BeforeSuite");
 			Log.debug("________________Suite Started_____________________");
 			reports.init("V:\\GitRepository\\FlipKart\\reports.html", true);
+			
 		}
 		
 		@AfterSuite
@@ -65,13 +69,16 @@ import com.relevantcodes.extentreports.ExtentReports;
 			}
 			else if(browser.equalsIgnoreCase("PhantomJS")){
 			}
+			else if(browser.equalsIgnoreCase("HTMLUnitDriver")){
+				driver = new HtmlUnitDriver();
+			}
 			
 			driver.manage().window().maximize();
 		}
 		
 		@AfterTest
 		public void reportThings(){
-			System.out.println("AfterClass");
+			reports.endTest();
 			driver.close();
 			driver.quit();
 			

@@ -40,9 +40,9 @@ public class Test1 extends App{
 	}*/
 	
 	@Test
-	public void test2(){
+	public void test1(){
 		
-		reports.startTest("Login1","Check Login Successful");
+		reports.startTest("Login and Logout","Check Login Successful");
 		try{
 		driver = Login.navigateToLogin(driver);
 		reports.log(LogStatus.PASS, "Navigate to Login", "The user is in Login Page");
@@ -51,6 +51,7 @@ public class Test1 extends App{
 		}catch(Exception e){
 			System.out.println(e.getStackTrace());
 		}
+		
 	}	
 	
 	
