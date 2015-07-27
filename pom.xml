@@ -9,18 +9,58 @@
 
   <name>FlipKart</name>
   <url>http://maven.apache.org</url>
-
+  
+  
+  
+  
+      <build>
+        <!-- Source directory configuration -->
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14.1</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <!-- Compiler plugin configures the java version to be usedfor compiling 
+                the code -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>6.9.4</version>
+	</dependency>
+
     <dependency>
     	<groupId>org.seleniumhq.selenium</groupId>
     	<artifactId>selenium-java</artifactId>
@@ -46,5 +86,28 @@
     	<artifactId>poi-ooxml</artifactId>
     	<version>3.12</version>
     </dependency>
+    
+    
+    <dependency>
+    	<groupId>com.fillo.code</groupId>
+    	<artifactId>fillo</artifactId>
+    	<version>1.11</version>
+    </dependency>
+    
+    
+    <dependency>
+    	<groupId>com.extentreports.code</groupId>
+    	<artifactId>extentreports</artifactId>
+    	<version>141</version>
+    </dependency>
+    
+    
+    <dependency>
+    	<groupId>com.log4j.code</groupId>
+    	<artifactId>log4j</artifactId>
+    	<version>1.2.17</version>
+    </dependency>
+    
   </dependencies>
-</project>
+    
+  </project>
