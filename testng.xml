@@ -1,8 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestNG Flipkart" parallel="tests" thread-count="1">
 	<listeners> 
-	    <listener class-name="FlipKart.FlipKart.RetryListner">
-	    
+	    <listener 
+	        class-name="FlipKart.FlipKart.RetryListner">
+		</listener>        
+	    <listener 
+	        class-name="FlipKart.FlipKart.TestListeners">
 	</listener>
 	</listeners>		
 	    
