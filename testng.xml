@@ -18,7 +18,7 @@
 	    
 		
 		<test name="Login test Fail">
-		    <parameter name ="browser" value = "firefox"/>
+		    <parameter name ="browser" value = "ie"/>
 		    <classes>
 		        <class name="Tests.Test2" ></class>  
 		    </classes>
