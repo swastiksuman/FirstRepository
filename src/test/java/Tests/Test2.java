@@ -36,8 +36,9 @@ public class Test2 extends App{
 	public void test2(){
 		reports.startTest("Login and Logout again","Check Login Unsuccessful");
 		try{
-		Login.navigateToLogin(driver);
-		Login.loginToApp(driver, testCaseID);
+		Login login = new Login();	
+		login.navigateToLogin(driver);
+		login.loginToApp(driver, testCaseID);
 		}catch(Exception e){
 			System.out.println(e.getStackTrace());
 		}

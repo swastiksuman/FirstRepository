@@ -23,10 +23,17 @@ public class Test5 extends App{
 	@Test
 	public void test4(){
 		reports.startTest("Search and add to cart","Search text");
-		Login.navigateToLogin(driver);
+		
 		try {
-			Login.loginToApp(driver, testCaseID);
-			
+			Login login = new Login();
+			login.navigateToLogin(driver);
+			login.loginToApp(driver, testCaseID);
+			Cart cart = new Cart();
+			cart.deleteFromCart(driver, testCaseID);
+			Search search = new Search();
+			search.textSearch(driver, testCaseID);
+			ProductPage prodPage = new ProductPage();
+			prodPage.addToCart(driver, testCaseID);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,9 +41,6 @@ public class Test5 extends App{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Cart.deleteFromCart(driver, testCaseID);
-		Search.textSearch(driver, testCaseID);
-		ProductPage.addToCart(driver, testCaseID);
 	}
 	
 	

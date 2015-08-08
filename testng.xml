@@ -10,7 +10,7 @@
 	</listeners>		
 	    
 		<test name="Login test">
-		    <parameter name ="browser" value = "chrome"/>
+		    <parameter name ="browser" value = "PhantomJs"/>
 		    <classes>
 		        <class name="Tests.Test1" ></class>  
 		    </classes>
@@ -20,7 +20,7 @@
 		<test name="Login test Fail">
 		    <parameter name ="browser" value = "ie"/>
 		    <classes>
-		        <class name="Tests.Test2" ></class>  
+		        <class name="Tests.Test2" ></class>
 		    </classes>
 		</test>
 		

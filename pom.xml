@@ -86,28 +86,26 @@
     	<artifactId>poi-ooxml</artifactId>
     	<version>3.12</version>
     </dependency>
-    
-    
     <dependency>
     	<groupId>com.fillo.code</groupId>
     	<artifactId>fillo</artifactId>
     	<version>1.11</version>
     </dependency>
-    
-    
     <dependency>
     	<groupId>com.extentreports.code</groupId>
     	<artifactId>extentreports</artifactId>
     	<version>141</version>
     </dependency>
-    
-    
     <dependency>
     	<groupId>com.log4j.code</groupId>
     	<artifactId>log4j</artifactId>
     	<version>1.2.17</version>
     </dependency>
-    
+    <dependency>
+    <groupId>com.github.detro</groupId>
+    <artifactId>phantomjsdriver</artifactId>
+    <version>1.2.0</version>
+	</dependency>
   </dependencies>
     
   </project>

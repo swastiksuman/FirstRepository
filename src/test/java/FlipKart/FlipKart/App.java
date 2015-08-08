@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -49,7 +51,7 @@ import com.relevantcodes.extentreports.LogStatus;
 		
 			
 		
-		@BeforeTest
+		@BeforeClass
 		@Parameters("browser")
 		public void initEverything(String browser){
 			System.out.println("BeforeClass");
@@ -68,6 +70,10 @@ import com.relevantcodes.extentreports.LogStatus;
 				
 			}
 			else if(browser.equalsIgnoreCase("PhantomJS")){
+				DesiredCapabilities desCaps = new DesiredCapabilities();
+				desCaps.setJavascriptEnabled(true);
+				desCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "V:/Jars/phantomjs-2.0.0-windows/bin/phantomjs.exe");
+				driver = new PhantomJSDriver(desCaps);
 			}
 			else if(browser.equalsIgnoreCase("HTMLUnitDriver")){
 				driver = new HtmlUnitDriver();
@@ -76,7 +82,7 @@ import com.relevantcodes.extentreports.LogStatus;
 			driver.manage().window().maximize();
 		}
 		
-		@AfterTest
+		@AfterClass
 		public void reportThings(){
 			reports.endTest();
 			driver.close();

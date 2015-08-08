@@ -21,18 +21,18 @@ import Fillo.Fillo;
 import Fillo.Recordset;
 import FlipKart.FlipKart.App;
 
-public class Login extends App{
+public class Login extends PageObject{
 	
 	
 	
-	public static WebDriver navigateToLogin(WebDriver driver){
+	public WebDriver navigateToLogin(WebDriver driver){
 		
 		driver.get("http://www.flipkart.com");
 		driver.findElement(By.linkText("Login")).click();
 		return driver;
 	}
 	
-	public static boolean loginToApp(WebDriver driver, String TCID) throws Exception{
+	public boolean loginToApp(WebDriver driver, String TCID) throws Exception{
 		/*List<WebElement> frameList = driver.findElements(By.tagName("iframe"));
 		
 		for(WebElement everyFrame : frameList){

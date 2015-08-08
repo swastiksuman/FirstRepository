@@ -10,10 +10,10 @@ import org.openqa.selenium.WebElement;
 
 import FlipKart.FlipKart.App;
 
-public class Cart extends App{
+public class Cart extends PageObject{
 
 	
-	public static boolean deleteFromCart(WebDriver driver, String testCaseID){
+	public boolean deleteFromCart(WebDriver driver, String testCaseID){
 		
 		
 		

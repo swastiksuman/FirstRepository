@@ -25,10 +25,12 @@ public class Test3 extends App{
 	@Test
 	public void test3(){
 		reports.startTest("Search functionality.","Search text");
-		Login.navigateToLogin(driver);
+		Login login = new Login();
 		try {
-			Login.loginToApp(driver, testCaseID);
-			
+			login.navigateToLogin(driver);
+			login.loginToApp(driver, testCaseID);
+			Search search = new Search();
+			search.textSearch(driver, testCaseID);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,7 +38,6 @@ public class Test3 extends App{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Search.textSearch(driver, testCaseID);
 		
 	}
 }

@@ -11,10 +11,10 @@ import Fillo.Connection;
 import Fillo.Fillo;
 import Fillo.Recordset;
 
-public class ProductPage {
+public class ProductPage extends PageObject{
 
 	
-	public static boolean addToCart(WebDriver driver, String testCaseID){
+	public boolean addToCart(WebDriver driver, String testCaseID){
 			
 		
 		try{

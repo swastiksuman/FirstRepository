@@ -17,14 +17,14 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import FlipKart.FlipKart.App;
 import PageObjects.Login;
+import PageObjects.PageObject;
 
 
 
 public class Test1 extends App{
 	
 
-	private String testCaseID = "TC_001"; 
-	
+	private String testCaseID = "TC_001";
 		
 	
 	/*@BeforeMethod
@@ -42,11 +42,12 @@ public class Test1 extends App{
 	@Test
 	public void test1(){
 		
+		Login login = new Login();
 		reports.startTest("Login and Logout","Check Login Successful");
 		try{
-		driver = Login.navigateToLogin(driver);
+		login.navigateToLogin(driver);
 		reports.log(LogStatus.PASS, "Navigate to Login", "The user is in Login Page");
-		Login.loginToApp(driver, testCaseID);
+		login.loginToApp(driver, testCaseID);
 		reports.log(LogStatus.PASS, "Login","Login was successful");
 		}catch(Exception e){
 			System.out.println(e.getStackTrace());

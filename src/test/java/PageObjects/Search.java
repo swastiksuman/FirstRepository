@@ -13,8 +13,8 @@ import Fillo.Fillo;
 import Fillo.Recordset;
 import FlipKart.FlipKart.App;
 
-public class Search extends App {
-	public static boolean textSearch(WebDriver driver, String testCaseID){
+public class Search extends PageObject {
+	public boolean textSearch(WebDriver driver, String testCaseID){
 		
 		
 		String textSearch = null;
