@@ -25,26 +25,13 @@ public class Test1 extends App{
 	
 
 	private String testCaseID = "TC_001";
-		
-	
-	/*@BeforeMethod
-	public void preTest(){
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	
-		
-	}
-	@AfterMethod
-	public void afterTestCleanUp(){
-	}*/
 	
 	@Test
-	public void test1(){
-		
+	public void test1(){	
+		try{
+		PageObject pgObj = new PageObject(driver, testCaseID);
 		Login login = new Login();
 		reports.startTest("Login and Logout","Check Login Successful");
-		try{
 		login.navigateToLogin(driver);
 		reports.log(LogStatus.PASS, "Navigate to Login", "The user is in Login Page");
 		login.loginToApp(driver, testCaseID);
@@ -53,7 +40,5 @@ public class Test1 extends App{
 			System.out.println(e.getStackTrace());
 		}
 		
-	}	
-	
-	
+	}
 }

@@ -33,9 +33,8 @@ import com.relevantcodes.extentreports.LogStatus;
 		public WebDriver driver;
 		public static Logger Log = Logger.getLogger("devpinoyLogger");
 		
-		
 		@BeforeSuite
-		public void beforeSuite(){
+		public void beforeSuite(){	
 			System.out.println("BeforeSuite");
 			Log.debug("________________Suite Started_____________________");
 			reports.init("V:\\GitRepository\\FlipKart\\reports.html", true);
